@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İTÜ Takvim</title>
+  </head>
+  <body class="min-w-80 bg-base-200 p-3 text-base-content">
+    <main class="card w-full max-w-sm bg-base-100 shadow-xl">
+      <div class="card-body gap-4 p-5">
+        <div class="flex items-center justify-between gap-3">
+          <label class="sr-only" for="language">Dil / Language</label>
+          <select id="language" class="select select-sm w-28 shrink-0" aria-label="Dil / Language">
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+          </select>
+          <label class="sr-only" for="theme">Renk teması</label>
+          <select id="theme" class="select select-sm w-24 shrink-0" aria-label="Renk teması">
+            <option value="light">Açık</option>
+            <option value="dark">Koyu</option>
+          </select>
+        </div>
+        <header class="space-y-1">
+          <h1 id="title" class="card-title text-xl">İTÜ Takvim</h1>
+          <p id="description" class="text-sm text-base-content/70">Programınızı almak için İTÜ OBS Ders Takvimi sayfasını açın ya da yenileyin ve yüklenmesini bekleyin.</p>
+        </header>
+        <p id="status" class="alert alert-info text-sm" role="status" aria-live="polite">Takvim verisi aranıyor…</p>
+        <details id="calendar-summary" class="collapse collapse-arrow rounded-box border border-base-300 bg-base-200" hidden>
+          <summary id="summary-title" class="collapse-title cursor-pointer font-medium">Takvime eklenecekler</summary>
+          <div class="collapse-content">
+            <ul id="summary-list" class="max-h-64 space-y-2 overflow-y-auto pr-1"></ul>
+          </div>
+        </details>
+        <button id="export" class="btn btn-primary btn-block" type="button" disabled>iCalendar dosyasını indir (.ics)</button>
+      </div>
+    </main>
+    <script type="module" src="/src/popup/main.ts"></script>
+  </body>
+</html>

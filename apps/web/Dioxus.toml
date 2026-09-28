@@ -1,0 +1,6 @@
+[application]
+name = "itu_calendar"
+default_platform = "web"
+
+[web.app]
+title = "ITU Calendar"

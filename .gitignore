@@ -1,0 +1,8 @@
+# Node and browser extension build output
+node_modules/
+apps/extension/dist/
+
+# Rust and Dioxus build output
+target/
+apps/web/target/
+apps/web/.dx/
