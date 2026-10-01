@@ -1960,6 +1960,7 @@ dependencies = [
  "csv-async",
  "dioxus",
  "futures-util",
+ "js-sys",
  "reqwest",
  "rusqlite",
  "serde",

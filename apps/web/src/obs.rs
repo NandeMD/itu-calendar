@@ -1,11 +1,16 @@
+#[cfg(feature = "server")]
 use crate::CourseMeeting;
+#[cfg(feature = "server")]
 use dioxus::prelude::ServerFnError;
 #[cfg(feature = "server")]
 use futures_util::{StreamExt, TryStreamExt};
+#[cfg(feature = "server")]
 use serde::Deserialize;
 
+#[cfg(feature = "server")]
 const LESSONS_URL: &str = "https://raw.githubusercontent.com/itu-helper/data/main/lessons.psv";
 
+#[cfg(feature = "server")]
 #[derive(Deserialize)]
 pub struct Lesson {
     pub crn: u32,
@@ -84,6 +89,13 @@ pub async fn lookup_crns(crns: Vec<String>) -> Result<Vec<CourseMeeting>, Server
                 start_time: start_time.to_owned(),
                 end_time: end_time.to_owned(),
                 location,
+                teaching_method: lesson.teaching_method,
+                instructor: lesson.instructor,
+                building: buildings.to_owned(),
+                room: room.to_owned(),
+                capacity: lesson.capacity,
+                enrolled: lesson.enrolled,
+                majors: lesson.majors,
             }
         })
         .collect())
