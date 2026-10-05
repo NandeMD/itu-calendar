@@ -37,7 +37,14 @@ function writeManifest(browser: string): Plugin {
           { matches: [obsMatch], js: ["content.js"], run_at: "document_start", world: "ISOLATED" },
         ],
         ...(browser === "firefox"
-          ? { browser_specific_settings: { gecko: { id: "itu-calendar@local" } } }
+          ? {
+              browser_specific_settings: {
+                gecko: {
+                  id: "itu-calendar@local",
+                  data_collection_permissions: { required: ["none"] },
+                },
+              },
+            }
           : {}),
       };
 
